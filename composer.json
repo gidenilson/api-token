@@ -9,6 +9,7 @@
             "email": "gidenilson@gmail.com"
         }
     ],
+	"minimum-stability": "dev",
     "require": {
         "php": ">=7.4"
     },
