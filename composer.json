@@ -1,0 +1,20 @@
+{
+    "name": "gidenilson/api-token",
+    "description": "Token manager for api",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gidenilson Santiago",
+            "email": "gidenilson@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "APIToken\\": "src/"
+        }
+    }
+    
+}
