@@ -6,7 +6,13 @@ class Token {
 
     private static $letters = "abcdedfgijklmnopqrstuvxwyz";
     public static function generate($id = '', $length = 4){
-        $ip = $_SERVER['SERVER_ADDR'];
+        
+        if(isset($_SERVER['SERVER_ADDR'])) {
+            $ip = $_SERVER['SERVER_ADDR'];
+        }else{
+            $ip = '';
+        }
+        
         $seed = '';
         for($i = 0; $i<$length; $i++){
             $seed .= substr(self::$letters, random_int(0, strlen(self::$letters)), 1);
@@ -22,7 +28,11 @@ class Token {
     public static function verify($token, $id = ''){
         $token = base64_decode($token);
         $token = json_decode($token, true);
-
-        return $token['ip'] == $_SERVER['SERVER_ADDR'] && $token['id'] == $id;
+        if(isset($_SERVER['SERVER_ADDR'])) {
+            $ip = $_SERVER['SERVER_ADDR'];
+        }else{
+            $ip = '';
+        }
+        return $token['ip'] == $ip && $token['id'] == $id;
     }
 }
