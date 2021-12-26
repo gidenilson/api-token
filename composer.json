@@ -1,6 +1,6 @@
 {
     "name": "gidenilson/api-token",
-    "description": "Token manager for api",
+    "description": "Very basic token manager for api",
     "license": "MIT",
     "type": "library",
     "authors": [
