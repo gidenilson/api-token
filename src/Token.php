@@ -25,7 +25,7 @@ class Token {
         return $token;
     }
 
-    public static function verify($token, $id = ''){
+    public static function verify($token){
         $token = base64_decode($token);
         $token = json_decode($token, true);
         if(isset($_SERVER['SERVER_ADDR'])) {
@@ -33,6 +33,19 @@ class Token {
         }else{
             $ip = '';
         }
-        return $token['ip'] == $ip && $token['id'] == $id;
+        if(!is_array($token)){
+            return false;
+        }
+        return $token['ip'] == $ip;
+    }
+    public static function getId($token){
+        $token = base64_decode($token);
+        $token = json_decode($token, true);
+        if(isset($token['id'])){
+            return $token['id'];
+        }else{
+            return false;
+        }
+        
     }
 }
